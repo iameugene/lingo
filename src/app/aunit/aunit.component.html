@@ -1,0 +1,47 @@
+<mat-card class="example-card">
+
+  <mat-card-header>
+    <mat-card-title>{{aunit.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="audio-play">
+      <div id="audio-source-control">
+      <div>
+      <button title="проиграть" mat-raised-button color="default" (click)="play()">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+
+      </div>
+      <div (click)="play()" id="waveform"></div>
+      <!-- <audio controls [src]="aunit.audioUrl"></audio> -->
+      </div>
+    </div>
+
+    <div class="recording-pan">
+      <button title="старт/стоп запись" class="recording" mat-fab [color]="ls.recorder?.state == 'recording' ? 'warm' : 'primary'"
+        (click)="onClick()">
+        <mat-icon>{{ls.recorder?.state == 'recording' ? 'crop_square' : 'mic'}}</mat-icon>
+      </button>
+      <button title="проиграть свою запись" class="recording" mat-fab color="default" (click)="repeat()">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+      <!-- #TODO repeat etalon + myself-->
+      <button title="проиграть эталон и свою запись" class="recording" mat-fab color="default" (click)="repeat()">
+        <mat-icon>replay</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <mat-slide-toggle class="toggle" [(ngModel)]="checked" color="primary">auto play</mat-slide-toggle>
+    <button style="float: right;"
+    [disabled]="!isBlobAvaiable"
+    mat-button (click)="push()">push record</button>
+  </mat-card-actions>
+  <mat-card-footer>
+
+    <p *ngIf="aunit.userRecord">saved</p>
+  </mat-card-footer>
+
+
+</mat-card>

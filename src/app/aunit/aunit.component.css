@@ -1,0 +1,35 @@
+.toggle {
+    font-size: 14px;
+    font-weight: 500;
+}
+.example-card {
+    max-width: 400px;
+    margin: auto;
+}
+
+.recording-pan {
+    display: flex;
+    justify-content: center;
+}
+.recording {
+    margin: 10px;
+}
+.audio-play {
+    padding: 20px 0 20px 0;
+    margin: auto;
+    max-width: 290px;
+}
+
+#audio-source-control {
+    width: 100%;
+    display: flex;
+    align-items:center;
+}
+#waveform {
+    width: 100%;
+    margin-left: 20px;
+}
+
+mat-card-title {
+    text-align: center;
+}
